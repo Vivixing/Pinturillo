@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="game.css" rel="stylesheet">
+</head>
+<body>
+  <div class="flex flex-wrap justify-center items-center space-x-20 my-24">
+    <div class=" max-w-xl h-[720px] bg-white shadow-xl rounded-lg overflow-hidden ranking">
+      <table>
+        <tr>
+          <th>Position</th>
+          <th>Player</th>
+          <th>Score</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Alfreds</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Moctezuma</td>
+          <td>20</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Ernst Handel</td>
+          <td>30</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Island Trading</td>
+          <td>40</td>
+
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Laughing</td>
+          <td>50</td>
+        </tr>
+
+      </table>
+    </div>
+
+    <div class="game max-w-600">
+      <div class="info flex justify-around items-center h-10">
+        <div class="clock w-20 h-20 rounded-full text-center flex items-center justify-center">
+      <h1 id="time">99</h1>
+    </div>
+        <div>
+          <p class="text-white">Room #616</p>
+        </div>
+        <div class="word text-white text-center">
+          <p>_ _ _ _</p>
+        </div>
+        <div>
+          <p class="text-white">Round 1/3</p>
+        </div>
+      </div>
+      <div>
+      <canvas id="gameCanvas" class="bg-white" width="620" height="600"></canvas>
+        </div>
+        <div class="bg-white flex flex-wrap space-x-2">
+          <button id="clear" class="clear rounded text-white p-2 ml-2">Clear</button>
+          <input id="colors" class="w-20 h-20" name='stroke' type="color" onchange="colorSeleccionado(this.value)">
+          <div id="defaultColors" class="flex flex-wrap justify-center items-center max-w-md">
+            <button id="defaultColors" data-color="#000000" onclick="colorSeleccionado(this.getAttribute('data-color'))" class="bg-black w-10 h-10"></button>
+            <button onclick="colorSeleccionado('#444444')" class="bg-gray-600 w-10 h-10"></button>
+            <button onclick="colorSeleccionado('#8b0000')" class="bg-red-800 w-10 h-10"></button>
+            <button onclick="colorSeleccionado('#cd5c5c')" class="bg-red-600 w-10 h-10"></button>
+            <button onclick="colorSeleccionado('#ff8c00')" class="bg-amber-800 w-10 h-10"></button>
+            <button onclick="colorSeleccionado('#ff7f50')" class="bg-orange-600 w-10 h-10"></button>
+            <button onclick="colorSeleccionado('#ffd700')" class="bg-yellow-400 w-10 h-10"></button>
+            <button onclick="colorSeleccionado('#008000')" class="bg-green-600 w-10 h-10"></button>
+            <button onclick="colorSeleccionado('#4169e1')" class="bg-blue-600 w-10 h-10"></button>
+            <button onclick="colorSeleccionado('#00008b')" class="bg-blue-900 w-10 h-10"></button>
+            <button onclick="colorSeleccionado('#4b0082')" class="bg-indigo-800 w-10 h-10"></button>
+            <button onclick="colorSeleccionado('#4b0082')" class="bg-indigo-600 w-10 h-10"></button>
+            <button onclick="colorSeleccionado('#ffffff')" class="bg-white w-10 h-10 border border-black"></button>
+            <button onclick="colorSeleccionado('#d3d3d3')" class="bg-gray-400 w-10 h-10"></button>
+            <button onclick="colorSeleccionado('#ffb6c1')" class="bg-pink-300 w-10 h-10"></button>
+            <button onclick="colorSeleccionado('#ff69b4')" class="bg-pink-500 w-10 h-10"></button>
+            <button onclick="colorSeleccionado('#ffd700')" class="bg-yellow-600 w-10 h-10"></button>
+            <button onclick="colorSeleccionado('#ffecb3')" class="bg-yellow-300 w-10 h-10"></button>
+            <button onclick="colorSeleccionado('#008000')" class="bg-green-400 w-10 h-10"></button>
+            <button onclick="colorSeleccionado('#98fb98')" class="bg-green-200 w-10 h-10"></button>
+            <button onclick="colorSeleccionado('#add8e6')" class="bg-blue-300 w-10 h-10"></button>
+            <button onclick="colorSeleccionado('#4b0082')" class="bg-indigo-400 w-10 h-10"></button>
+          </div>       
+        </div>
+    </div>
+    <div class="chat bg-white">
+      <!-- Component Start -->
+	<div class="flex flex-col flex-grow w-full max-w-xl max-h-[720px] bg-white shadow-xl rounded-lg overflow-hidden">
+		<div class="flex flex-col flex-grow p-4 overflow-auto">
+			<div class="flex w-full mt-2 space-x-3 max-w-xs">
+				<div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
+				<div>
+					<div class="bg-gray-300 p-3 rounded-r-lg rounded-bl-lg">
+						<p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					</div>
+					<span class="text-xs text-gray-500 leading-none">2 min ago</span>
+				</div>
+			</div>
+			<div class="flex w-full mt-2 space-x-3 max-w-xs ml-auto justify-end">
+				<div>
+					<div class="bg-blue-600 text-white p-3 rounded-l-lg rounded-br-lg">
+						<p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+					</div>
+					<span class="text-xs text-gray-500 leading-none">2 min ago</span>
+				</div>
+				<div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
+			</div>
+			<div class="flex w-full mt-2 space-x-3 max-w-xs ml-auto justify-end">
+				<div>
+					<div class="bg-blue-600 text-white p-3 rounded-l-lg rounded-br-lg">
+						<p class="text-sm">Lorem ipsum dolor sit amet.</p>
+					</div>
+					<span class="text-xs text-gray-500 leading-none">2 min ago</span>
+				</div>
+				<div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
+			</div>
+			<div class="flex w-full mt-2 space-x-3 max-w-xs">
+				<div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
+				<div>
+					<div class="bg-gray-300 p-3 rounded-r-lg rounded-bl-lg">
+						<p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+					</div>
+					<span class="text-xs text-gray-500 leading-none">2 min ago</span>
+				</div>
+			</div>
+			<div class="flex w-full mt-2 space-x-3 max-w-xs ml-auto justify-end">
+				<div>
+					<div class="bg-blue-600 text-white p-3 rounded-l-lg rounded-br-lg">
+						<p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+					</div>
+					<span class="text-xs text-gray-500 leading-none">2 min ago</span>
+				</div>
+				<div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
+			</div>
+			<div class="flex w-full mt-2 space-x-3 max-w-xs ml-auto justify-end">
+				<div>
+					<div class="bg-blue-600 text-white p-3 rounded-l-lg rounded-br-lg">
+						<p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+					</div>
+					<span class="text-xs text-gray-500 leading-none">2 min ago</span>
+				</div>
+				<div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
+			</div>
+			<div class="flex w-full mt-2 space-x-3 max-w-xs ml-auto justify-end">
+				<div>
+					<div class="bg-blue-600 text-white p-3 rounded-l-lg rounded-br-lg">
+						<p class="text-sm">Lorem ipsum dolor sit amet.</p>
+					</div>
+					<span class="text-xs text-gray-500 leading-none">2 min ago</span>
+				</div>
+				<div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
+			</div>
+			<div class="flex w-full mt-2 space-x-3 max-w-xs">
+				<div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
+				<div>
+					<div class="bg-gray-300 p-3 rounded-r-lg rounded-bl-lg">
+						<p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+					</div>
+					<span class="text-xs text-gray-500 leading-none">2 min ago</span>
+				</div>
+			</div>
+			<div class="flex w-full mt-2 space-x-3 max-w-xs ml-auto justify-end">
+				<div>
+					<div class="bg-blue-600 text-white p-3 rounded-l-lg rounded-br-lg">
+						<p class="text-sm">Lorem ipsum dolor sit.</p>
+					</div>
+					<span class="text-xs text-gray-500 leading-none">2 min ago</span>
+				</div>
+				<div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
+			</div>
+		</div>
+		
+		<div class="bg-gray-300 p-4">
+			<input class="flex items-center h-10 w-full rounded px-3 text-sm" type="text" placeholder="Type your message…">
+		</div>
+	</div>
+	<!-- Component End  -->
+    </div>
+  </div>
+</body>
+<script src="tailwind.config.js"></script>
+<script src="canvas.js"></script>
+<script src="timer.js"></script>
+<script src="clear.js"></script>
+</html>

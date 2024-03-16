@@ -1,0 +1,20 @@
+body{
+    background-color: #6241D9;
+}
+
+.info{
+    background-color: #660273;
+}
+
+.clock{
+    background-color: #F2B3E1;
+    position: absolute;
+    margin-left: -600px;}
+
+.clear{
+    background-color: #660273;
+}
+
+.th, tr, td{
+    gap: 20px;
+}
