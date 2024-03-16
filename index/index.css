@@ -4,3 +4,7 @@
 body{
     background-image: url(/image/efecto-rayon.png);
 }
+.round{
+    border-radius: 50px;
+    border-color: #F2B3E1;
+}
