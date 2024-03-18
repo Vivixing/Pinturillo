@@ -1,0 +1,44 @@
+body{
+    background-color: #6241d9;
+    background-image: url(media/efecto-rayon.png);
+    justify-content: center;
+    justify-items: center;
+}
+
+.result{
+    background-color: #1E1940;
+    border-color: #f2b3e1;
+}
+
+.rank1{
+    background-color: white;
+}
+
+.rank2{
+    background-color: white;
+}
+
+.rank3{
+    background-color: white;
+}
+
+.boton-regresar{
+    background-color: #660273;
+}
+
+.boton-home{
+    background-color: #660273;
+}
+
+.number1{
+    background-color: #660273;
+}
+
+.number2{
+    background-color: #660273;
+}
+
+.number3{
+    background-color: #660273;
+}
+
