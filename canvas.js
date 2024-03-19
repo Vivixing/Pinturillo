@@ -1,30 +1,17 @@
 const canvas = document.getElementById('gameCanvas');
-var color = ""
-
-window.addEventListener('load', () => {
-    document.addEventListener('mousedown',startDrawing);
-    document.addEventListener('mousemove',draw);
-    document.addEventListener('mouseup',stopDrawing);
-});
-
+canvas.width = canvas.offsetWidth;
+canvas.height = canvas.offsetHeight;
 const ctx = canvas.getContext('2d'); 
+color = "#000000";
+width = 5;
 let drawing = false;
 let coords = {x:0,y:0};
-function startDrawing(e) {
-    drawing = true;
-    draw(e);
-}
 
-function getPosition(e){ 
-    coords.x = e.clientX - canvas.offsetLeft; 
-    coords.y = e.clientY - canvas.offsetTop; 
-}
-
-function colorSeleccionado(colorEnviado) {
-    color = colorEnviado;
-    console.log("Color seleccionado:", color);
-    return color;
-}
+canvas.addEventListener("mousedown", startDrawing);
+canvas.addEventListener("mousemove", draw);
+canvas.addEventListener("mouseup", stopDrawing);
+canvas.addEventListener("mouseout", stopDrawing);
+window.addEventListener("resize", adjustCanvasSize);
 
 function startDrawing(e) { 
     drawing = true; 
@@ -33,29 +20,35 @@ function startDrawing(e) {
 function draw(e){ 
     if (!drawing) return; 
     ctx.beginPath(); 
-    
-    ctx.lineWidth = 5; 
-    
-    // Sets the end of the lines drawn 
-    // to a round shape. 
+    ctx.lineWidth = width; 
     ctx.lineCap = 'round'; 
-        ctx.strokeStyle = color;
-                
-        // The cursor to start drawing 
-        // moves to this coordinate 
-        ctx.moveTo(coords.x, coords.y); 
-         
-        // The position of the cursor 
-        // gets updated as we move the 
-        // mouse around. 
-        getPosition(e); 
-        
-        ctx.lineTo(coords.x, coords.y);
-        ctx.stroke();
-        
-    }
+    ctx.strokeStyle = color;
+    ctx.moveTo(coords.x, coords.y);  
+    getPosition(e); 
+    ctx.lineTo(coords.x, coords.y);
+    ctx.stroke();
+}
+
 function stopDrawing() {
     drawing = false;
     ctx.stroke();
     ctx.beginPath();
+}
+
+function getPosition(e){ 
+    const rect = canvas.getBoundingClientRect();
+    coords.x = e.clientX - rect.left; 
+    coords.y = e.clientY - rect.top; 
+}
+
+function changeColor(selectedColor) {
+    color = selectedColor;
+    console.log("Color seleccionado:", color);
+    return color;
+}
+
+function changeWidth(num) {
+    width = num;
+    console.log("Ancho seleccionado:", width);
+    return width;
 }
