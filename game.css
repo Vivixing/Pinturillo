@@ -1,0 +1,41 @@
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #F2B3E1 #f5f5f5;
+}
+
+body{
+    background-color: #6241D9;
+    background-image:url(/media/efecto-rayon.png);
+}
+
+.info{
+    background-color: #660273;
+}
+
+.clock{
+    background-color: #F2B3E1;
+    position: absolute;
+    margin-left: -700px;
+}
+
+.clear{
+    background-color: #660273;
+}
+
+.profilePic1{
+    background-image: url(media/hombre1.png);
+    background-repeat: no-repeat;
+}
+
+.profilePic2{
+    background-image: url(media/mujer1.png);
+    background-repeat: no-repeat;
+}
+
+.profilePic3{
+    background-image: url(media/mujer2.png);
+    background-repeat: no-repeat;
+}
+
+
+
